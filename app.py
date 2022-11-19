@@ -1,9 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 import ibm_db
-import sendgrid
-import os
-from dotenv import load_dotenv
-from sendgrid.helpers.mail import Mail, Email, To, Content
 
 app = Flask(__name__)
 # secret key required to maintain unique user sessions
@@ -12,13 +8,7 @@ app.secret_key = 'f39c244d6c896864abe3310b839091799fed56007a438d637baf526007609f
 # establish connection with IBM Db2 Database
 connection = ibm_db.connect("DATABASE=bludb;HOSTNAME=8e359033-a1c9-4643-82ef-8ac06f5107eb.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=30120;SECURITY=SSL;UID=gyq42313;PWD=TRn8xYTPTGloNwQC;", "", "")
 
-load_dotenv()  # load keys from .env
-sg = sendgrid.SendGridAPIClient(api_key=os.environ.get(
-    'SENDGRID_API_KEY'))  # set SendGrid API Key
-# the address that sends emails to the users
-from_email = Email("dhanushcodepro@gmail.com")
 
-# Handle expense model according to ibm db
 
 
 
